@@ -20,11 +20,12 @@ The theme uses the 256-color palette and standard Unicode characters. No Nerd Fo
 
 Requires Zsh, [Oh My Zsh](https://ohmyz.sh/), and a terminal with 256-color support, such as macOS Terminal, iTerm2, Windows Terminal (with Zsh running in WSL), GNOME Terminal, Konsole, Alacritty, kitty, or Ghostty. Git is needed for repository information.
 
-Download or clone this repository, then run the following from its directory:
+Download the theme file into your Oh My Zsh custom themes directory:
 
 ```zsh
 mkdir -p "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes"
-cp synthwave.zsh-theme "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/"
+curl -fsSL https://raw.githubusercontent.com/JimmyBoomBots3000/synthwave-zsh/master/synthwave.zsh-theme \
+  -o "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/synthwave.zsh-theme"
 ```
 
 In `~/.zshrc`, set this before the line that loads Oh My Zsh:
@@ -38,8 +39,6 @@ Restart your shell:
 ```zsh
 exec zsh
 ```
-
-If you downloaded the theme directly into your custom themes directory, skip the copy step.
 
 ## Background color
 
