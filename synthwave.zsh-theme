@@ -5,6 +5,16 @@
 
 setopt prompt_subst
 
+# Let the theme place Python virtual environments inside the prompt frame.
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+_synthwave_virtualenv() {
+  [[ -n ${VIRTUAL_ENV-} ]] || return 0
+  local name=${VIRTUAL_ENV:t}
+  # Environment names are text, even when they contain prompt escapes.
+  printf ' %%F{93}[%%F{141}venv: %s%%F{93}]%%f' "${name//\%/%%}"
+}
+
 # Request a whole-terminal midnight-purple background with OSC 11.
 # Set SYNTHWAVE_BACKGROUND='#201030' before loading Oh My Zsh to customize,
 # or set it to an empty string to keep the terminal profile's background.
@@ -30,7 +40,7 @@ fi
 # Two lines keep the command entry point fixed even in deep directories.
 # Failed commands show their exit code; background jobs show only when present.
 # Sunset stripes fade into the violet frame; cyan keeps the path readable.
-PROMPT='%F{93}╭─%F{220}▰%F{214}▰%F{208}▰%F{202}▰%F{199}▰%F{129}▰ %F{207}${_synthwave_identity} %F{93}// %B%F{51}%3~%b%f$(git_prompt_info) %(1j.%F{141}[%j jobs]%f .)%(?..%F{203}[exit %?]%f)
+PROMPT='%F{93}╭─%F{220}▰%F{214}▰%F{208}▰%F{202}▰%F{199}▰%F{129}▰ %F{207}${_synthwave_identity} %F{93}// %B%F{51}%3~%b%f$(_synthwave_virtualenv)$(git_prompt_info) %(1j.%F{141}[%j jobs]%f .)%(?..%F{203}[exit %?]%f)
 %F{93}╰────%B%(?.%F{214}.%F{203})❯%F{208}❯%F{199}❯%b%f '
 
 # Time commands between execution and the next prompt, excluding idle time.

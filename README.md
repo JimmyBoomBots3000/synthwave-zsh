@@ -9,6 +9,7 @@ A two-line Oh My Zsh theme with sunset stripes, orange-to-magenta prompt arrows,
 - Git branch with a cyan `○` for a clean worktree or an orange `●` for changes.
 - Current directory, shortened to the last three path components.
 - Username, plus hostname in SSH sessions.
+- Active Python virtual environment inside the top line, as `[venv: virtual-env-name]`.
 - Last command's elapsed time in seconds, beside a 24-hour clock.
 - Failed command exit codes and a red leading prompt arrow.
 - Background job count when jobs are present.
@@ -61,6 +62,8 @@ Colors must use the six-digit `#RRGGBB` format. If your terminal ignores OSC 11,
 ## Prompt behavior
 
 The elapsed time appears after the first command runs and excludes time spent waiting at the prompt. The right prompt disappears when the command line needs its space.
+
+Python virtual environments appear after the directory, inside the prompt frame. The theme disables Python's automatic `(name)` prefix and reads the active environment from `VIRTUAL_ENV`, so the label updates when you activate or deactivate an environment.
 
 Edit the `%F{number}` values in `synthwave.zsh-theme` to customize the palette. The theme requires no additional Oh My Zsh plugins.
 
