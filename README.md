@@ -2,7 +2,15 @@
 
 A two-line Oh My Zsh theme with sunset stripes, orange-to-magenta prompt arrows, a violet frame, and a bright cyan path.
 
-![terminal preview](./synthwave-zsh.png)
+
+Clean worktree: cyan `○`
+
+![Prompt showing a clean Git worktree](./synthwave-git-clean.png)
+
+Worktree with changes: orange `●`
+
+![Prompt showing Git worktree changes](./synthwave-git-changes.png)
+
 
 ## Features
 
